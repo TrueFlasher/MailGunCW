@@ -2,7 +2,7 @@ from django.urls import include, path
 from mail.views import send_email_view, registration, login_view, welcome, view_messages, dashboard, view_sent_messages
 
 urlpatterns = [
-    path('', include('mail.urls')),
+    path('', include('MailGunCW.urls')),
     path('send_email/', send_email_view, name='send_email'),
     path('registration/', registration, name='registration'),
     path('login/', login_view, name='login'),
