@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель управления</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .dashboard-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .dashboard-container p {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-container h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-container ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .dashboard-container li {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-container a.btn {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .dashboard-container a.btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .dashboard-container a.btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .dashboard-container a.btn-secondary {
+            background-color: #6c757d;
+            color: #ffffff;
+        }
+
+        .dashboard-container a.btn-secondary:hover {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Добро пожаловать, {{ user.username }}!</h1>
+        <p>Логин: {{ user.username }}</p>
+        <p>Email: {{ email }}</p>
+
+
+        <ul>
+            <li><a href="{% url 'send_email' %}" class="btn btn-primary">Отправить новое сообщение</a></li>
+            <li><a href="{% url 'view_messages' %}" class="btn btn-primary">Просмотреть полученные сообщения</a></li>
+            <li><a href="{% url 'view_sent_messages' %}" class="btn btn-primary">Просмотреть отправленные сообщения</a></li>
+            <li><a href="{% url 'welcome' %}" class="btn btn-secondary">Выход</a></li>
+        </ul>
+    </div>
+</body>
+</html>

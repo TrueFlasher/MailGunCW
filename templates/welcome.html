@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Приветственная страница</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .welcome-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-container .action-buttons a {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1 class="text-center">Добро пожаловать на приветственную страницу</h1>
+
+        <div class="action-buttons">
+            <a href="{% url 'login' %}" class="btn btn-primary btn-block">Вход</a>
+            <a href="{% url 'registration' %}" class="btn btn-secondary btn-block">Регистрация</a>
+        </div>
+    </div>
+</body>
+</html>

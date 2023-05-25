@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание почтового сообщения</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .email-form {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .email-form label {
+            font-weight: bold;
+        }
+
+        .email-form input[type="text"],
+        .email-form input[type="email"],
+        .email-form textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            box-sizing: border-box;
+        }
+
+        .email-form textarea {
+            resize: vertical;
+        }
+
+        .email-form input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .email-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-form">
+        <h1>Создание почтового сообщения</h1>
+
+        <form method="post" action="{% url 'send_email' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="subject" class="form-label">Тема:</label>
+                <input type="text" name="subject" id="subject" class="form-control" required>
+            </div>
+
+            <input type="hidden" name="sender" id="sender" value="{{ request.user.email }}"> <!-- Скрытое поле с предопределенным значением -->
+
+            <div class="mb-3">
+                <label for="recipient" class="form-label">Получатель:</label>
+                <input type="email" name="recipient" id="recipient" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">Содержание:</label>
+                <textarea name="content" id="content" rows="4" class="form-control" required></textarea>
+            </div>
+
+            <input type="submit" value="Создать" class="btn btn-primary">
+        </form>
+            <a href="{% url 'dashboard' %}">Вернутся на главную страницу</a>
+    </div>
+
+</body>
+</html>

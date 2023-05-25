@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .registration-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .registration-container form label {
+            font-weight: bold;
+        }
+
+        .registration-container form input[type="text"],
+        .registration-container form input[type="email"],
+        .registration-container form input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            margin-bottom: 10px;
+        }
+
+        .registration-container form button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .registration-container form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .registration-container .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_username">Логин:</label>
+                <input type="text" name="username" id="id_username" required>
+            </div>
+            <div>
+                <label for="id_email">Email:</label>
+                <input type="email" name="email" id="id_email" required>
+            </div>
+            <div>
+                <label for="id_password1">Пароль:</label>
+                <input type="password" name="password1" id="id_password1" required>
+            </div>
+            <div>
+                <label for="id_password2">Подтверждение пароля:</label>
+                <input type="password" name="password2" id="id_password2" required>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <a href="{% url 'welcome' %}" class="back-link">Вернуться на приветственную страницу</a>
+    </div>
+</body>
+</html>
