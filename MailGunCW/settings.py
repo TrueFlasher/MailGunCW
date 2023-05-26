@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'MailGunCW.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mail_pn5e',
-        'USER': 'user',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': 'dpg-chnbiipmbg5577kjfat0-a',
+        'HOST': os.environ.get('DATABASE_HOST'),
         'PORT': '5432',
     }
 }
